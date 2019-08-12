@@ -1,0 +1,11 @@
+﻿body {
+    text-align:center;
+}
+.product{
+    width: 200px;
+    border: solid 1px gray;
+    display: inline-block;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
