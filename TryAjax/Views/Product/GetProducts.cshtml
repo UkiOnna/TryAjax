@@ -1,6 +1,6 @@
 ﻿
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <!DOCTYPE html>
@@ -17,14 +17,7 @@
 <body>
     <div id="results">
     </div>
-    <button id="onetime">Получить продукты</button>
+
     <script src="~/Scripts/GetProductsAjax.js"></script>
-    <script>
-        window.onload = function () {
-            document.getElementById("onetime").onclick = function () {
-                this.disabled = 'disabled';
-            }
-        }
-    </script>
 </body>
 </html>

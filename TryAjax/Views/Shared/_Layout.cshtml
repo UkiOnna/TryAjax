@@ -1,0 +1,78 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/index.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Site.css")" />
+    <title>_Layout</title>
+</head>
+<body>
+    <div>
+        <div class="Title"><h1>Super-Shop</h1></div>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col px-0">
+                    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
+                        <a class="navbar-brand" href="~/Home/Index">SUPER-SHOP</a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav mr-auto">
+                                <li class="nav-item dropdown">
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <div id="header" class="header">
+                                        <input id="getAllItems" class="headerButton" type="button" value="Продукты" />
+                                        <input id="addItem" class="headerButton" type="button" value="Добавить продукт" />
+                                        <input id="removeItem" class="headerButton" type="button" value="Удалить продукт" />
+                                    </div>
+                                </li>
+                            </ul>
+
+                            @if (!Request.IsAuthenticated)
+                            {
+                                <form class="form-inline my-2 my-lg-0">
+                                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                                    <a href="/User/Login" class="btn btn-primary my-2 my-sm-0" type="submit">Login</a>
+                                </form>
+                            }
+                            else
+                            {
+                                <form action="~/User/GetInformation" class="form-inline my-2 my-lg-0">
+                                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit"></button>
+                                </form>
+
+                                <form action="~/User/LogOut" method="post" class="form-inline my-2 my-lg-0">
+                                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">SignOut</button>
+                                </form>
+                            }
+
+
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>
